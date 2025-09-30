@@ -1,25 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import './App,css';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+// Importar os componentes
+import Login from './components/Login.js';
 
+function App(){
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = (username, password) => {
+    if (username === 'admin' && password === '123'){
+      setIsLoggedIn(true);
+    } else {
+      alert('Usuario ou Senha INVALIDOS!!!')
+    }
+  };
+
+  if (!isLoggedIn){
+    return(
+    <Login onLogin={handleLogin}/>
+    )
+  }
+
+};
 export default App;

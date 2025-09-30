@@ -13,7 +13,7 @@ function Login({onLogin}){
 
     return(
         <div>
-            <form>
+            <form onSubmit={handleSubmit}>
                 <h2>Agenda de Contatos</h2>
                 <p>Faça o login para continuar</p>
                 <input
@@ -26,8 +26,9 @@ function Login({onLogin}){
                 type= 'password'
                 placeholder='Senha (123)'
                 value={password}
-                onChangeCapture={(e) => setPassword(e.target.value)}
+                onChange={(e) => setPassword(e.target.value)}
                 />
+                <button type='submit'>Entrar</button>
             </form>
         </div>
     )
