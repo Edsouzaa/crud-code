@@ -1,38 +1,82 @@
-.App {
-  text-align: center;
+/*
+Importar uma fonte do Google fonts
+*/
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+/*
+Definir vars de cor para facilitar a manutenção
+*/
+:root {
+  --primary-color: #007bff;
+  --primary-hover-color: #0056b3;
+  --secondary-color: #f7f9fa;
+  --text-color: #333;
+  --border-color: #ffffff;
+  --error-color: #dc3545;
+  --sucess-color: #28a745;
+  --box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+/*
+Reseta estilos básicos e aplica a fonte global
+*/
+body{
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background-color: var(--secundary-color);
+  color: var(--text-color);
+  line-height: 1.6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/*
+Layout principal da aplicação
+*/
+.app-container{
+  display:flex;
+  min-height: 100vh; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+/*
+Estilo do container do conteúdo principal
+*/
+.content{
+  flex-grow: 1;
+  padding: 2rem;
+  background-color: var(--background-color);
+}
+
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 12px;
+  margin-bottom: 1rem;
+  border: 1px solid #333;
+  border-radius: 8px;
+  box-sizing: border-box;
+  font-size: 1rem;
+  transition: border-color 0.3s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+}
+
+button{
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  background-color: var(--primary-color);
   color: white;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
 }
 
-.App-link {
-  color: #61dafb;
+button:hover{
+  background-color: var(--primary-hover-color);
+  transform: translateY(-2px);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}

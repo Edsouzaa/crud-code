@@ -12,8 +12,8 @@ function Login({onLogin}){
     }
 
     return(
-        <div>
-            <form onSubmit={handleSubmit}>
+        <div className='login-container'> 
+            <form className='login-form' onSubmit={handleSubmit}>
                 <h2>Agenda de Contatos</h2>
                 <p>Faça o login para continuar</p>
                 <input
