@@ -1,8 +1,8 @@
 import React, {useState} from 'react';
-import './App,css';
+import './App.css';
 
 // Importar os componentes
-import Login from './components/Login.js';
+import Login from './components/Login/Login.js';
 
 function App(){
   const [isLoggedIn, setIsLoggedIn] = useState(false);
