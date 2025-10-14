@@ -23,10 +23,18 @@ function Menu({onNavigate, onCreate}){
                 <li>
                     <a href="#" onClick={(e)=>{
                         e.preventDefault();
-                        onNavigate('welcome')
+                        onNavigate('Welcome')
                     }}>
                     Página Inicial
                     </a>
+                </li>
+                <li>
+                   <a href="#" onClick={(e) =>{
+                    e.preventDefault();
+                    onNavigate('logout');
+                   }}>
+                    Sair
+                    </a> 
                 </li>
             </ul>
         </nav>

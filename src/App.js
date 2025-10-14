@@ -25,19 +25,50 @@ function App(){
     }
   };
 
-  const handleSaveContact = (contact) => {}
-  const handleDeleteContact = (id) => {}
-  const startEdit = (contact) => {}
-  const showCreatForm = () => {}
-  const handleNavigate = () => {}
+  const handleSaveContact = (contact) => {
+    if(contact.id){ // Se o contato ja tem ID, é uma atualização
+      setContacts(contacts.map(c => c.id === contact.id ? contact : c));
+      alert('Contado alterado com sucesso!');
+    } else { // Cadastra-se um contato novo
+      contact.id = Date.now();
+      setContacts([...contacts, contact]);
+      alert('Contato cadastrado com sucesso!');
+    };
+    setActiveScreen('list');
+    setContactToEdit(null);
+  };
+
+  const handleDeleteContact = (id) => {
+    setContacts(contacts.filter(c => c.id !== id));
+    alert('Contato removido com sucesso!');
+  };
+
+  const startEdit = (contact) => {
+    setContactToEdit(contact);
+    setActiveScreen('form');
+  };
+
+  const showCreatForm = () => {
+    setContactToEdit(null);
+    setActiveScreen('form')
+  };
+
+  const handleNavigate = (screen) => {
+    if(screen === 'logout'){
+      setIsLoggedIn(false);
+    } else{
+      setActiveScreen(screen);
+    }
+  };
 
   if (!isLoggedIn){
     return(
     <Login onLogin={handleLogin}/>
     )
-  }
+  };
+
   return(
-    <div>
+    <div className='app-container'>
       <Menu onNavigate={handleNavigate} onCreate={showCreatForm}/>
       <main className='content'>
         {activeScreen === 'Welcome' && <Welcome/>}
